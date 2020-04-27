@@ -1,0 +1,213 @@
+.btn-primary {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fa8968+46,ea6fa3+100 */
+    background: #fa8968; /* Old browsers */
+    background: -moz-linear-gradient(left,  #fa8968 46%, #ea6fa3 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #fa8968 46%,#ea6fa3 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #fa8968 46%,#ea6fa3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa8968', endColorstr='#ea6fa3',GradientType=1 ); /* IE6-9 */
+    border-color: transparent !important;
+    outline: none;
+
+    &:focus, &:active {
+        border-color: transparent !important;
+    }
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+    background-color: #FFF;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.25);
+    min-height: 40px;
+    margin: 0 -15px 30px -15px;
+
+    .searchContainer {
+        text-align: left;
+        padding: 0 10px;
+        position: relative;
+
+        .searchIcon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            background-color: #dedddd;
+        }
+
+        input {
+            border: 1px solid transparent;
+            border-radius: 4px;
+            height: 40px;
+            padding: 0 10px 0 40px;
+        }
+    }
+
+    .profileAction {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        color: inherit;
+        text-decoration: none;
+
+        img {
+            margin: 0 5px;
+        }
+    }
+}
+    
+.sidemenuContainer {
+    width: 45px !important;
+    max-width: 45px !important;
+    padding: 0px !important;
+    background-color: #ff7e7c;
+    min-height: 100vh;
+    z-index: 999;
+    
+    .topMenu {
+        padding: 10px 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 99999;
+        background: #ff7e7c;
+    }
+    
+    ul {
+        padding: 0px;
+        list-style-type: none;
+        margin: 80px 0 0 0;
+
+        li {
+            height: 40px;
+            position: relative;
+
+            &.active {
+                &::before {
+                    content:'';
+                    border-left: 3px solid white;
+                    position: absolute;
+                    left: 1px;
+                    top: 0px;
+                    bottom: 0px;
+                }
+            }
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.contactLeft {
+    
+    h3, p {
+        margin: 0px;
+    }
+
+    h3::before {
+        content: '';
+        width: 40px;
+        height: 40px;
+        background-image: url('../assets/agenda.svg');
+        display: flex;
+        position: absolute;
+        left: -40px;
+    }
+
+    p {
+        color: #d6d6d6;
+        font-size: small;
+    }
+
+    .searchField {
+        background: #f1f1f1;
+        border-radius: 50px;
+    }
+
+    .table-borderless {
+        
+        thead {
+           background: #f1f1f1;
+        } 
+
+        tr {
+            &:hover {
+                background-color: #f1f1f1;
+            }
+        }
+
+        .checkBox {
+            width: 15px;
+            height: 15px;
+        }
+
+        td {
+            vertical-align: middle;
+        }
+
+        .profImg {
+            max-width: 40px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #239c15;
+            padding: 0px;
+            border-radius: 50px;
+            color: #FFF;
+        }
+
+        h6 {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.sideBlock {
+    background-color: #f1f1f1;
+    padding: 15px;
+
+    h5 {
+        margin: 0px;
+    }
+    
+    .small {
+         color: #ababab;
+         margin: 0;
+    }
+
+    .sideBlockheader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .sideBlockImg {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #239c15;
+            padding: 0px;
+            border-radius: 50px;
+            color: #FFF;
+       }
+    }
+}
