@@ -7,6 +7,18 @@ import { IContactState } from "../interfaces/contacts/IContactState";
 import { IContactProps } from "../interfaces/contacts/IContactProps";
 import "../contacts/Contact.scss";
 import { IContact } from "../interfaces/contacts/IContact";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import ContactForm from "./ContactForm/ContactForm";
+import { ActionType } from "../interfaces/contacts/ActionType";
+import ChatContainer from "./ChatContainer/ChatContainer";
+
+
+const CommandTypes = {
+  CREATE: "CREATE",
+  UPDATE: "UPDATE",
+  CONFIRMATION: "CONFIRMATION",
+};
 
 export default class Contacts extends React.Component<
   IContactProps,
@@ -16,7 +28,8 @@ export default class Contacts extends React.Component<
         super(props);
         
         this.state = {
-            selectedContact: null
+            displayContact: null,
+            currentCommandType: ''
         }
     }
 
@@ -24,18 +37,119 @@ export default class Contacts extends React.Component<
         
     }
 
+    componentWillReceiveProps(prevProps: IContactProps, nextProps: IContactProps) {
+      console.log(prevProps);
+      console.log(nextProps);
+      const { displayContact}  = this.state
+      if(displayContact) {
+        if(prevProps.loggedInContact === displayContact ) {
+          this.setState({
+            displayContact: null
+          });
+        }
+      }
+    }
+
     selectContact(contact: IContact) {
-      contact.isSelected = !contact.isSelected;
         this.setState({
-            selectedContact: contact.isSelected ? contact : null
+            displayContact: contact
         });
+    }
+
+
+    createOrUpdateContact(contact: IContact, type: ActionType) {
+
+      this.setState({
+        currentCommandType: ''
+      }, () => {
+        if(type === ActionType.ADD) {
+          this.props.createContact(contact)
+        }
+
+        if(type === ActionType.EDIT) {
+          this.props.updateContact(contact)
+        }
+      }
+     );
+    }
+
+    openCommands(type: string) {
+      this.setState({
+        currentCommandType: type
+      });
+    }
+
+    handleClose() {
+      this.setState({
+        currentCommandType: ''
+      });
+    }
+
+    deleteConfimation() {
+      const contact = { ...this.state.displayContact };
+      this.setState({
+        displayContact: null,
+        currentCommandType: ''
+      } , () => {
+        this.props.deleteContact(contact.contactId)
+      })
     }
 
   render() {
     
     const { contacts, onSearchContact } = this.props;
-    const { selectedContact } = this.state;
-    console.log(contacts,selectedContact);
+    const { displayContact, currentCommandType } = this.state;
+   
+
+    let command: JSX.Element = null;
+
+    switch(currentCommandType) {
+
+      case CommandTypes.CREATE: {
+        command = (
+          <ContactForm 
+          headerTitle="Update Contact"
+          contact={null}
+          onSave={this.createOrUpdateContact.bind(this)}
+          onModalClose={this.handleClose.bind(this)}
+          />
+        );
+        break;
+      }
+
+      case CommandTypes.UPDATE: {
+        command = (
+          <ContactForm 
+          headerTitle= "Update Contact"
+          contact={displayContact}
+          onSave={this.createOrUpdateContact.bind(this)}
+          onModalClose={this.handleClose.bind(this)}
+          />
+        );
+        break;
+      }
+
+      case CommandTypes.CONFIRMATION: {
+        command = (
+          <Modal show={true} onHide={() => this.handleClose()} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure want to perform this action ?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => this.handleClose()}>
+            No
+          </Button>
+          <Button variant="primary" onClick={() => this.deleteConfimation()}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        )
+        break;
+      }
+    }
+
     return (
             <div className="row justify-content-around">
               <div className="col-md-5 contactLeft">
@@ -58,17 +172,17 @@ export default class Contacts extends React.Component<
               </select>
                   </div>
                 </div>
-                <form className="form-inline mt-5" action="/action_page.php">
+                <form className="form-inline mt-5">
                   <div className="form-group">
                     <input
-                      type="email"
+                      type="text"
                       placeholder="Search Contacts"
                       className="form-control searchField"
-                      id="email"
+                      id="search"
                       onChange={(e) => onSearchContact(e.target.value)}
                     />
                   </div>
-                  <button type="submit" className="btn btn-primary ml-3">
+                  <button type="button" className="btn btn-primary ml-3" onClick={() => this.openCommands(CommandTypes.CREATE)}>
                     Add Contact
                   </button>
                 </form>
@@ -76,7 +190,7 @@ export default class Contacts extends React.Component<
                   <thead>
                     <tr>
                       <th>
-                        <img width="10" src={plus} />
+                        <img width="10" src={plus} alt="plus"/>
                       </th>
                       <th>Basic Info</th>
                       <th>Company</th>
@@ -99,7 +213,7 @@ export default class Contacts extends React.Component<
                       </td>
                       <td>
                         <div className="row">
-                          <div className="col profImg">{contact.firstName[1].toUpperCase()}{contact.lastName[1].toUpperCase()}</div>
+                          <div className="col profImg">{contact.firstName[0].toUpperCase()}{contact.lastName[0].toUpperCase()}</div>
                           <div className="col -md-12">
                           <h6>{contact.firstName} {contact.lastName}</h6>
                             <p>
@@ -114,10 +228,10 @@ export default class Contacts extends React.Component<
                           
                           </td>
                           <td>
-                          <img width="20" src={edit} title='edit'/>
+                          <img width="20" src={edit} title='edit' alt='edit' onClick={() => this.openCommands(CommandTypes.UPDATE)}/>
                           </td>
                           <td>
-                          <img width="20" src={trash} title='delete'/>
+                          <img width="20" src={trash} title='delete' alt="delete" onClick={() => this.openCommands(CommandTypes.CONFIRMATION)}/>
                           </td>
                     </tr>
                           ))
@@ -126,10 +240,10 @@ export default class Contacts extends React.Component<
                 </table>
               </div>
               <div className="col-md-5 contactRight">
-               { selectedContact && (<div className="sideBlock">
+               { displayContact && (<div className="sideBlock">
                   <div className="sideBlockheader">
-                    <div className="sideBlockImg">{selectedContact.firstName[0].toUpperCase()}{ selectedContact.lastName[0].toUpperCase()}</div>
-                    <h5>{selectedContact.firstName} {selectedContact.lastName}</h5>
+                    <div className="sideBlockImg">{displayContact.firstName[0].toUpperCase()}{ displayContact.lastName[0].toUpperCase()}</div>
+                    <h5>{displayContact.firstName} {displayContact.lastName}</h5>
                     <p className="small">
                       Product Manager @ CRM Management
                     </p>
@@ -138,47 +252,41 @@ export default class Contacts extends React.Component<
                     <tbody>
                       <tr>
                         <td>Full Name :</td>
-                        <td>{selectedContact.firstName} {selectedContact.lastName}</td>
+                        <td>{displayContact.firstName} {displayContact.lastName}</td>
                       </tr>
                       <tr>
                         <td>Email:</td>
-                        <td>{selectedContact.emailAddress}</td>
+                        <td>{displayContact.emailAddress}</td>
                       </tr>
                       <tr>
                         <td>Phone</td>
-                        <td>{selectedContact.phoneNumber}</td>
+                        <td>{displayContact.phoneNumber}</td>
                       </tr>
                       <tr>
                         <td>Company</td>
-                        <td>{selectedContact.company}</td>
+                        <td>{displayContact.company}</td>
                       </tr>
                       <tr>
                         <td>Address</td>
                         <td>
-                           <address>{selectedContact.address}</address> 
+                           <address>{displayContact.address}</address> 
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>)}
 
-                {/* <div className="sideBlock mt-5">
+                      { command }
+                <div className="mt-5" style={{padding:'15px'}}>
                   <div className="row">
-                    <div className="col-md-2 align-self-center">
-                      <img width="40" src={plus} />
-                    </div>
-                    <div className="col-md-8 align-self-center">
-                      <h5>Cubilia a scelerisque</h5>
-                      <p className="small">
-                        At convallis porttitor molestie curabitur sociosqu
-                        consectetur.
-                      </p>
-                    </div>
-                    <div className="col-md-2 align-self-center text-center">
-                      ...
-                    </div>
+                    {
+                      displayContact ? (<ChatContainer
+                        loggedInContact={this.props.loggedInContact}
+                        sendMessage={this.props.sendMessage.bind(this)}
+                        selectedContact={ displayContact}/>) : null
+                    }
                   </div>
-                </div> */}
+                </div>
 
               </div>
             </div>

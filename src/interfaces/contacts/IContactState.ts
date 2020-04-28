@@ -1,5 +1,7 @@
 import { IContact } from "./IContact";
 
 export interface IContactState {
-   selectedContact: IContact;
+   displayContact: IContact;
+   currentCommandType: string;
+
 }

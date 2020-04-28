@@ -1,4 +1,5 @@
 import { IContact } from "../interfaces/contacts/IContact";
+import { MessageType } from "../interfaces/contacts/MessageType";
 
 export const mockContacts: IContact[]  = [
     {
@@ -57,7 +58,8 @@ export const mockContacts: IContact[]  = [
           }
         }
       ],
-      isSelected: false
+      isSelected: false,
+      isChecked : false
     },
     {
       contactId: 'bd07f0b0-d1e2-4768-99a7-80f91b8f782a',
@@ -72,7 +74,7 @@ export const mockContacts: IContact[]  = [
         {
         date:'2020-04-26T15:27:03.384Z',
         message:'Hi How are you',
-        messageType:2,
+        messageType: 2,
         from:{
         id: 'b3296990-d31a-4f5c-a8cf-8f8f1ef66ba6',
         name: 'Catherin Grafton-Herbert'
@@ -81,7 +83,7 @@ export const mockContacts: IContact[]  = [
   {
         date:'2020-04-26T15:27:17.667Z',
         message:'What are you doing ?',
-        messageType:2,
+        messageType: 2,
         from:{
         id:'b3296990-d31a-4f5c-a8cf-8f8f1ef66ba6',
         name: 'Catherin Grafton-Herbert'
@@ -90,7 +92,7 @@ export const mockContacts: IContact[]  = [
   {
         date:'2020-04-26T15:27:54.156Z',
         message:'I am good',
-        messageType:1,
+        messageType: 1,
         to:{
         id:'b3296990-d31a-4f5c-a8cf-8f8f1ef66ba6',
         name :'Catherin Grafton-Herbert'
@@ -99,7 +101,7 @@ export const mockContacts: IContact[]  = [
   {
         date:'2020-04-26T15:28:09.968Z',
         message:'What about you ?',
-        messageType:1,
+        messageType: 1,
         to:{
         id:'b3296990-d31a-4f5c-a8cf-8f8f1ef66ba6',
         name :'Catherin Grafton-Herbert'
@@ -108,14 +110,15 @@ export const mockContacts: IContact[]  = [
   {
         date:'2020-04-26T15:28:44.539Z',
         message:'Okay then',
-        messageType:1,
+        messageType: 1,
         to:{
         id:'b3296990-d31a-4f5c-a8cf-8f8f1ef66ba6',
         name :'Catherin Grafton-Herbert'
         }
         }
         ],
-  isSelected: false
+      isSelected: false,
+      isChecked: false
     },
   {
       contactId: 'b43bc385-0f5d-413d-a4a5-7d7bd16d75cc',
@@ -127,7 +130,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(545) 2661238',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false
     },
   {
       contactId: '0eb2f90e-1946-49eb-9f61-b33ac567f293',
@@ -139,7 +143,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(506) 4116188',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false
     },
   {
       contactId: '37ead301-230c-44d3-8514-9692e4ea0483',
@@ -151,7 +156,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(637) 4029198',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false,
     },
   {
       contactId: '20216343-248e-433c-a7a9-babe837796f8',
@@ -163,7 +169,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(110) 8072732',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false
     },
   {
       contactId: '32e93f9d-66b5-4488-8b59-00d9059eebf9',
@@ -175,7 +182,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(953) 7159136',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false
     },
   {
       contactId: '62415d8f-4c15-4209-b295-7f26613496f7',
@@ -187,7 +195,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(415) 1741624',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false
     },
   {
       contactId: '87007923-5c8f-4c6c-9af2-ec9febbea504',
@@ -199,7 +208,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(260) 7773750',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false
     },
   {
       contactId: '19d268c4-ff5e-4739-87b6-ff2f4b8d1d45',
@@ -211,7 +221,8 @@ export const mockContacts: IContact[]  = [
       isLoggedIn: false,
       phoneNumber: '(794) 1600754',
       messages: [],
-      isSelected: false
+      isSelected: false,
+      isChecked: false
     }
   ];
   

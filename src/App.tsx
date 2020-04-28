@@ -67,7 +67,9 @@ constructor(props: Readonly<{}>) {
     contacts.push(newContact);
     
     this.setState({
-      contacts
+      contacts,
+      filteredContacts: contacts,
+      displayContacts: contacts
     } ,() => {
       if(this.isSearchApplied()) {
         this.searchContact(this.searchText);
@@ -82,14 +84,18 @@ constructor(props: Readonly<{}>) {
   deleteContact(contactId: string) {
     let contacts = this.state.contacts.filter(c => c.contactId !== contactId);
     this.setState({
-      contacts
+      contacts,
+      filteredContacts: contacts,
+      displayContacts: contacts
     });
   }
 
   updateContact(existingContact: IContact) {
     let contacts = this.state.contacts.map(c => c.contactId === existingContact.contactId ? existingContact: c);
     this.setState({
-      contacts
+      contacts,
+      filteredContacts: contacts,
+      displayContacts: contacts
     });
   }
 
@@ -123,7 +129,9 @@ constructor(props: Readonly<{}>) {
     });
 
     this.setState({
-      contacts: contactsData
+      contacts: contactsData,
+      filteredContacts: contactsData,
+      displayContacts: contactsData
     })
   }
 
@@ -232,6 +240,7 @@ constructor(props: Readonly<{}>) {
         deleteContact={this.deleteContact.bind(this)}
         sendMessage={this.sendMessage.bind(this)}
         onSearchContact = {this.searchContact.bind(this)}
+        loggedInContact={loggedInContact}
         />
       </div>
       </div>

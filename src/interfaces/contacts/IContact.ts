@@ -11,5 +11,6 @@ export interface IContact {
    phoneNumber: string;
    messages: IMessage[];
    isSelected: boolean;
+   isChecked: boolean;
    creationDate ?: string;
 }
