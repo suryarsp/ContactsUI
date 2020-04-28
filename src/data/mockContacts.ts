@@ -1,5 +1,4 @@
 import { IContact } from "../interfaces/contacts/IContact";
-import { MessageType } from "../interfaces/contacts/MessageType";
 
 export const mockContacts: IContact[]  = [
     {

@@ -1,125 +1,135 @@
 .btn-primary {
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fa8968+46,ea6fa3+100 */
-    background: #fa8968; /* Old browsers */
-    background: -moz-linear-gradient(left,  #fa8968 46%, #ea6fa3 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left,  #fa8968 46%,#ea6fa3 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right,  #fa8968 46%,#ea6fa3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa8968', endColorstr='#ea6fa3',GradientType=1 ); /* IE6-9 */
-    border-color: transparent !important;
-    outline: none;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fa8968+46,ea6fa3+100 */
+  background: #fa8968; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #fa8968 46%,
+    #ea6fa3 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #fa8968 46%,
+    #ea6fa3 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #fa8968 46%,
+    #ea6fa3 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa8968', endColorstr='#ea6fa3',GradientType=1 ); /* IE6-9 */
+  border-color: transparent !important;
+  outline: none;
 
-    &:focus, &:active {
-        border-color: transparent !important;
-    }
+  &:focus,
+  &:active {
+    border-color: transparent !important;
+  }
 }
 
-
 .contactLeft {
-    
-    h3, p {
-        margin: 0px;
+  h3,
+  p {
+    margin: 0px;
+  }
+
+  h3::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-image: url("../assets/svg/agenda.svg");
+    display: flex;
+    position: absolute;
+    left: -40px;
+  }
+
+  select {
+    min-width: 40px;
+    margin-top: 8px;
+    border: none;
+    font-weight: 500;
+    padding-left: 15px;
+  }
+
+  p {
+    color: #af9c9c;
+    font-size: small;
+  }
+
+  .searchField {
+    background: #f1f1f1;
+    border-radius: 50px;
+  }
+
+  .table-borderless {
+    thead {
+      background: #f1f1f1;
     }
 
-    h3::before {
-        content: '';
-        width: 40px;
-        height: 40px;
-        background-image: url('../assets/svg/agenda.svg');
-        display: flex;
-        position: absolute;
-        left: -40px;
+    tr {
+      &:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+      }
     }
 
-    select {
-        min-width: 40px;
-        margin-top: 8px;
-        border: none;
-        font-weight: 500;
-        padding-left: 15px;
+    .checkBox {
+      width: 15px;
+      height: 15px;
     }
 
-    p {
-        color: #af9c9c;
-        font-size: small;
+    td {
+      vertical-align: middle;
     }
 
-    .searchField {
-        background: #f1f1f1;
-        border-radius: 50px;
+    .profImg {
+      max-width: 40px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #239c15;
+      padding: 0px;
+      border-radius: 50px;
+      color: #fff;
     }
 
-    .table-borderless {
-        
-        thead {
-           background: #f1f1f1;
-        } 
-
-        tr {
-            
-            &:hover {
-                background-color: #f1f1f1;
-                cursor: pointer;
-            }
-        }
-
-        .checkBox {
-            width: 15px;
-            height: 15px;
-        }
-
-        td {
-            vertical-align: middle;
-        }
-
-        .profImg {
-            max-width: 40px;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #239c15;
-            padding: 0px;
-            border-radius: 50px;
-            color: #FFF;
-        }
-
-        h6 {
-            margin-bottom: 0px;
-        }
+    h6 {
+      margin-bottom: 0px;
     }
+  }
 }
 
 .sideBlock {
-    background-color: #f1f1f1;
-    padding: 15px;
+  background-color: #f1f1f1;
+  padding: 15px;
 
-    h5 {
-        margin: 30px 0 0px 0;
-    }
-    
-    .small {
-         color: #ababab;
-         margin: 0;
-    }
+  h5 {
+    margin: 30px 0 0px 0;
+  }
 
-    .sideBlockheader {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+  .small {
+    color: #ababab;
+    margin: 0;
+  }
 
-        .sideBlockImg {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #239c15;
-            padding: 0px;
-            border-radius: 50px;
-            color: #FFF;
-            font-size: 24px;
-       }
+  .sideBlockheader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .sideBlockImg {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #239c15;
+      padding: 0px;
+      border-radius: 50px;
+      color: #fff;
+      font-size: 24px;
     }
+  }
 }

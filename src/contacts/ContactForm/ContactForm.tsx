@@ -1,17 +1,11 @@
 import * as React from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { IContactFormProps } from "../../interfaces/contacts/IContactFormProps";
 import { IContact } from "../../interfaces/contacts/IContact";
 import { Guid } from "guid-typescript";
 import Modal from "react-bootstrap/Modal";
-import ModalDialog from "react-bootstrap/ModalDialog";
-import ModalHeader from "react-bootstrap/ModalHeader";
-import ModalBody from "react-bootstrap/ModalBody";
-import ModalFooter from "react-bootstrap/ModalFooter";
 import Button from "react-bootstrap/Button";
 import { ActionType } from "../../interfaces/contacts/ActionType";
 
