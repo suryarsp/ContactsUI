@@ -30,8 +30,9 @@
 
 .message-sent {
     border-bottom-right-radius: 0px !important;
-    background: #4dcc12;
-    color: #fafafa;
+    
+    background: #f7f9fc;
+    color: #222b45;
     padding: 0.5rem;
     padding-bottom: 0px;
     border-radius: 1rem;
@@ -48,8 +49,8 @@
 
 .message-recieved {
     border-top-left-radius: 0px !important;
-    background: #f7f9fc;
-    color: #222b45;
+    background: #83c565;
+    color: #fafafa;
     padding: 0.5rem;
     border-radius: 1rem;
     display: inline-block;

@@ -206,9 +206,7 @@ export default class Contacts extends React.Component<
                       <td>
                         <input
                           type="checkbox"
-                          checked={contact.isSelected}
                           className="form-control checkBox"
-                          onChange = { (e) => {}}
                         />
                       </td>
                       <td>
