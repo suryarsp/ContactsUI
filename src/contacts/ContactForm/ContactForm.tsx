@@ -2,7 +2,7 @@ import * as React from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import { IContactFormProps } from "../../interfaces/contacts/IContactFormProps";
+import { IContactFormProps } from "../../interfaces/contactForm/IContactFormProps";
 import { IContact } from "../../interfaces/contacts/IContact";
 import { Guid } from "guid-typescript";
 import Modal from "react-bootstrap/Modal";

@@ -156,10 +156,11 @@ export default class Contacts extends React.Component<
     return (
       <div className="row justify-content-around">
         <div className="col-md-5 contactLeft">
+          {/* Contacts Header */}
           <div className="row">
             <div className="col-md-5">
               <h3>Contacts</h3>
-              <p>Include Stateforese asdasda</p>
+              <p>Welcome to FlatCRM Conatct Page</p>
             </div>
 
             <div className="col-md-5">
@@ -181,6 +182,9 @@ export default class Contacts extends React.Component<
               </select>
             </div>
           </div>
+          {/* End of Contact Header */}
+
+          {/* Actions */}
           <form className="form-inline mt-5">
             <div className="form-group">
               <input
@@ -199,6 +203,9 @@ export default class Contacts extends React.Component<
               Add Contact
             </button>
           </form>
+          {/* End of Actions */}
+
+          {/* Contact Table View */}
           <table className="table table-borderless mt-5">
             <thead>
               <tr>
@@ -269,9 +276,13 @@ export default class Contacts extends React.Component<
               ))}
             </tbody>
           </table>
+          {/* End of Contact Table View */}
         </div>
+
+        {/* Display Contact & Chat Box */}
         <div className="col-md-5 contactRight">
           {displayContact && (
+            // Display Contact Information
             <div className="sideBlock">
               <div className="sideBlockheader">
                 <div className="sideBlockImg">
@@ -312,9 +323,13 @@ export default class Contacts extends React.Component<
                 </tbody>
               </table>
             </div>
+            // End of Display Contact Information
           )}
 
-          {command}
+            {/* Modal Dialog */}
+          {command} 
+
+            {/* Chat Container */}
           <div className="mt-5" style={{ padding: "15px" }}>
             <div className="row">
               {displayContact ? (
@@ -326,6 +341,7 @@ export default class Contacts extends React.Component<
               ) : null}
             </div>
           </div>
+          {/* End of Chat Container */}
         </div>
       </div>
     );

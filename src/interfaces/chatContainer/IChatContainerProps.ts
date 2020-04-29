@@ -1,4 +1,4 @@
-import { IContact } from "./IContact";
+import { IContact } from "../contacts/IContact";
 
 export interface IChatContainerProps {
     loggedInContact: IContact;

@@ -167,6 +167,7 @@ class App extends React.Component<{}, IAppState> {
     const { contacts, loggedInContact } = this.state;
     return (
       <div className="container-fluid">
+        {/* Side Menu */}
         <div className="row">
           <div className="col sidemenuContainer">
             <a
@@ -234,8 +235,11 @@ class App extends React.Component<{}, IAppState> {
               </li>
             </ul>
           </div>
+              {/* End Of Side Menu */}
+
 
           <div className="col">
+            {/* Top Bar  */}
             <header>
               <div className="row m-0 justify-content-center h-100">
                 <div className="col-md-9 p-0">
@@ -291,6 +295,9 @@ class App extends React.Component<{}, IAppState> {
               </div>
             </header>
 
+            {/* End of Top Bar */}
+
+            {/* Container */}
             {/* Contacts App */}
             <Contacts
               contacts={displayContacts}
@@ -301,6 +308,8 @@ class App extends React.Component<{}, IAppState> {
               onSearchContact={this.searchContact.bind(this)}
               loggedInContact={loggedInContact}
             />
+
+            {/* End of Container */}
           </div>
         </div>
       </div>

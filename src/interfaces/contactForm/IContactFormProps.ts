@@ -1,5 +1,5 @@
-import { IContact } from "./IContact";
-import { ActionType } from "./ActionType";
+import { IContact } from "../contacts/IContact";
+import { ActionType } from "../contacts/ActionType";
 
 export interface IContactFormProps {
     contact:IContact;
