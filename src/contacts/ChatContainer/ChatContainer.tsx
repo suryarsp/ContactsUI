@@ -133,7 +133,7 @@ export default class ChatContainer extends React.Component<
             </Col>
             <Col md={2}>
               <div className="snd-btn" onClick={() => this.onClickSend()}>
-                <img width={20} src={send} alt="send"></img>
+                <img width={20} src={send} alt="send" title="Send"></img>
               </div>
             </Col>
           </Row>

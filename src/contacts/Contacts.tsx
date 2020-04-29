@@ -160,7 +160,7 @@ export default class Contacts extends React.Component<
           <div className="row">
             <div className="col-md-5">
               <h3>Contacts</h3>
-              <p>Welcome to FlatCRM Conatct Page</p>
+              <p>Welcome to FlatCRM Contact Page</p>
             </div>
 
             <div className="col-md-5">
@@ -330,7 +330,7 @@ export default class Contacts extends React.Component<
           {command} 
 
             {/* Chat Container */}
-          <div className="mt-5" style={{ padding: "15px" }}>
+          <div style={{ padding: "15px" }}>
             <div className="row">
               {displayContact ? (
                 <ChatContainer
