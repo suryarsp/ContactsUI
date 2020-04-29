@@ -3,16 +3,12 @@
 }
 
 .snd-btn {
-  position: relative;
-  float: right;
-  /* left: 40px; */
-  top: 43%;
-  transform: translateY(-65%);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
+  margin: 0 0 0 auto;
   border-radius: 50px;
   cursor: pointer;
   background: linear-gradient(to right, #fa8968 46%, #ea6fa3 100%);

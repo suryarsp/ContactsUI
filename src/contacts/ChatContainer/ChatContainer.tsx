@@ -119,7 +119,7 @@ export default class ChatContainer extends React.Component<
         <Card.Footer className="text-muted">
           <Row>
             <Col md={10}>
-              <div className="form-group">
+              <div className="form-group mb-0">
                 <input
                   type="text"
                   placeholder="Type something to send"

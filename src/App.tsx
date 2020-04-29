@@ -242,7 +242,7 @@ class App extends React.Component<{}, IAppState> {
             {/* Top Bar  */}
             <header>
               <div className="row m-0 justify-content-center h-100">
-                <div className="col-md-9 p-0">
+                <div className="col-md-8 p-0">
                   <div className="searchContainer h-100">
                     <span className="searchIcon">
                       <img width="10" src={search} alt="" title="Main Search"/>
@@ -250,7 +250,7 @@ class App extends React.Component<{}, IAppState> {
                     <input className="form-control" type="text" />
                   </div>
                 </div>
-                <div className="col-md-3 p-0 d-flex justify-content-end">
+                <div className="col-md-4 p-0 d-flex justify-content-end">
                   <a
                     onClick={(e) => {
                       e.preventDefault();

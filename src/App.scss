@@ -29,6 +29,9 @@
     position: sticky;
     top: 0;
     z-index: 99999;
+    background: #fa8968;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 
   }
 
@@ -88,6 +91,11 @@
     border-radius: 4px;
     height: 40px;
     padding: 0 10px 0 40px;
+
+    &:focus {
+      box-shadow: none;      
+    }
+
   }
 }
 

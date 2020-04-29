@@ -154,7 +154,7 @@ export default class Contacts extends React.Component<
     }
 
     return (
-      <div className="row justify-content-around">
+      <div className="row contactContainer">
         <div className="col-md-5 contactLeft">
           {/* Contacts Header */}
           <div className="row">
