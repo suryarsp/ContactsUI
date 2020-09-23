@@ -56,7 +56,7 @@ export default class ChatContainer extends React.Component<
     const { selectedContact } = this.props;
     const messages = this.getMessagesByLogin(selectedContact.messages);
     return (
-      <Card style={{ width: "100%" }}>
+      <Card style={{ width: "100%", position: 'relative', color: 'black', backgroundImage:'none' }}>
         <Card.Header className="text-left">
           {selectedContact.firstName} {selectedContact.lastName}
         </Card.Header>

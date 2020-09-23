@@ -30,7 +30,7 @@ class App extends React.Component<{}, IAppState> {
       contacts: mockContacts,
       displayContacts: mockContacts,
       filteredContacts: mockContacts,
-      loggedInContact: mockContacts.find((c) => c.isLoggedIn),
+      loggedInContact: mockContacts.find((c) => c.isLoggedIn)
     };
   }
 

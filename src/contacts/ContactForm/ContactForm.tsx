@@ -27,18 +27,15 @@ export default class ContactForm extends React.Component<IContactFormProps> {
       emailAddress,
       phoneNumber,
       company,
-      address,
+      address
     } = event.target.elements;
     if (contact) {
-      const contactValue: IContact = {
-        ...contact,
-        firstName: firstName.value,
+      const contactValue: IContact = Object.assign({}, contact , {firstName: firstName.value,
         lastName: lastName.value,
         emailAddress: emailAddress.value,
         phoneNumber: phoneNumber.value,
         company: company.value,
-        address: address.value,
-      };
+        address: address.value}); 
       onSave(contactValue, ActionType.EDIT);
     } else {
       const newContact: IContact = {

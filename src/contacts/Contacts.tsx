@@ -86,7 +86,7 @@ export default class Contacts extends React.Component<
   }
 
   deleteConfimation() {
-    const contact = { ...this.state.displayContact };
+    const contact = this.state.displayContact ;
     this.setState(
       {
         displayContact: null,
